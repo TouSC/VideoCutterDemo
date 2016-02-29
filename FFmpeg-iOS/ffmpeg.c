@@ -59,7 +59,6 @@
 #include "libavutil/bprint.h"
 #include "libavutil/ffmpegtime.h"
 #include "libavutil/threadmessage.h"
-# include "libavfilter/avcodec.h"
 # include "libavfilter/avfilter.h"
 # include "libavfilter/buffersrc.h"
 # include "libavfilter/buffersink.h"

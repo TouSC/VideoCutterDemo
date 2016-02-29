@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +15,105 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="第xx秒或者xx:xx:xx时刻" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q3D-4H-kKU">
+                                <rect key="frame" x="185" y="126" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="BSH-fO-ZA0"/>
+                                    <constraint firstAttribute="width" constant="200" id="dWx-zd-Cfb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="持续xx或者xx:xx:xx秒" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="idS-YZ-ImS">
+                                <rect key="frame" x="185" y="206" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="LPD-b1-JeL"/>
+                                    <constraint firstAttribute="width" constant="200" id="NNS-Ml-lDN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJx-jM-j3Z">
+                                <rect key="frame" x="168" y="300" width="164" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="164" id="XNN-hd-uUB"/>
+                                    <constraint firstAttribute="height" constant="30" id="Ycv-lj-e96"/>
+                                </constraints>
+                                <state key="normal" title="开始裁剪"/>
+                                <connections>
+                                    <action selector="beginCutAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="apv-UY-F0g"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zuy-ZQ-O3v">
+                                <rect key="frame" x="168" y="430" width="164" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="164" id="dbO-Bt-K77"/>
+                                    <constraint firstAttribute="height" constant="30" id="eEk-68-Gac"/>
+                                </constraints>
+                                <state key="normal" title="播放裁剪视频"/>
+                                <connections>
+                                    <action selector="playAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iMt-To-uqr"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="输入的时间格式为：xx:xx:xx 或者xx秒" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGr-aF-ABR">
+                                <rect key="frame" x="50" y="70" width="500" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="832-z0-jmz">
+                                <rect key="frame" x="200" y="360" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="YI7-5a-Me7"/>
+                                    <constraint firstAttribute="height" constant="30" id="npp-mu-m8h"/>
+                                </constraints>
+                                <state key="normal" title="一分为二"/>
+                                <connections>
+                                    <action selector="halfCutAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yfv-xV-mul"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="（这里默认从0秒开始）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aa6-ag-OxY">
+                                <rect key="frame" x="300" y="364" width="280" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="juw-0q-sM9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.94117647059999998" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eJx-jM-j3Z" firstAttribute="top" secondItem="idS-YZ-ImS" secondAttribute="bottom" constant="64" id="137-PY-ah2"/>
+                            <constraint firstItem="832-z0-jmz" firstAttribute="top" secondItem="eJx-jM-j3Z" secondAttribute="bottom" constant="30" id="19O-fs-zk9"/>
+                            <constraint firstAttribute="trailing" secondItem="Aa6-ag-OxY" secondAttribute="trailing" constant="20" id="1rR-8q-gNN"/>
+                            <constraint firstItem="HGr-aF-ABR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3mJ-Wc-F29"/>
+                            <constraint firstItem="Aa6-ag-OxY" firstAttribute="top" secondItem="eJx-jM-j3Z" secondAttribute="bottom" constant="34" id="6wF-V3-gxj"/>
+                            <constraint firstItem="Q3D-4H-kKU" firstAttribute="top" secondItem="HGr-aF-ABR" secondAttribute="bottom" constant="36.5" id="AbL-F3-eSP"/>
+                            <constraint firstItem="zuy-ZQ-O3v" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-50" id="JT9-DP-vnO"/>
+                            <constraint firstItem="zuy-ZQ-O3v" firstAttribute="top" secondItem="eJx-jM-j3Z" secondAttribute="bottom" constant="100" id="NzS-lA-1Cj"/>
+                            <constraint firstItem="Q3D-4H-kKU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-14.5" id="RcJ-qz-TSM"/>
+                            <constraint firstItem="eJx-jM-j3Z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-50" id="UcY-WG-QZx"/>
+                            <constraint firstItem="HGr-aF-ABR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="VTz-bU-iBI"/>
+                            <constraint firstItem="idS-YZ-ImS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-14.5" id="hXR-K0-rlK"/>
+                            <constraint firstAttribute="trailing" secondItem="HGr-aF-ABR" secondAttribute="trailing" constant="50" id="kCW-tq-qzL"/>
+                            <constraint firstItem="idS-YZ-ImS" firstAttribute="top" secondItem="Q3D-4H-kKU" secondAttribute="bottom" constant="50" id="kIL-HZ-H0p"/>
+                            <constraint firstItem="832-z0-jmz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-50" id="p8F-w8-S3z"/>
+                            <constraint firstItem="HGr-aF-ABR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="50" id="ymj-5U-MYQ"/>
+                            <constraint firstItem="Aa6-ag-OxY" firstAttribute="leading" secondItem="832-z0-jmz" secondAttribute="trailing" id="ziB-rg-ruB"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="beginCutBtn" destination="eJx-jM-j3Z" id="76K-4q-NPY"/>
+                        <outlet property="beginTimeTextField" destination="Q3D-4H-kKU" id="bWc-60-ap6"/>
+                        <outlet property="endTimeTextField" destination="idS-YZ-ImS" id="hp9-JX-slK"/>
+                        <outlet property="playBtn" destination="zuy-ZQ-O3v" id="Luu-u6-Lpo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="410" y="294"/>
         </scene>
     </scenes>
 </document>
