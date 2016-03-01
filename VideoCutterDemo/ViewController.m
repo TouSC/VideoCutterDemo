@@ -36,12 +36,12 @@
     if(arguments != NULL)
     {
         arguments[0] = "ffmpeg";
-        arguments[1] = "-i";
-        arguments[2] = inputPath;
-        arguments[3] = "-ss";
-        arguments[4] = startTime;
-        arguments[5] = "-t";
-        arguments[6] = endTime;
+        arguments[1] = "-ss";
+        arguments[2] = startTime;
+        arguments[3] = "-t";
+        arguments[4] = endTime;
+        arguments[5] = "-i";
+        arguments[6] = inputPath;
         arguments[7] = "-acodec";
         arguments[8] = "copy";
         arguments[9] = "-vcodec";
